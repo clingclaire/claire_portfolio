@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Portfolio | Graphic Designer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Base Reset & Typography --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            /* --- DARK RED DESIGN THEME (BACKGROUND PRESERVED) --- */
+            background-color: #140306;
+            background-image: 
+                radial-gradient(circle at 20% 30%, #310710 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, #22040a 0%, transparent 50%),
+                linear-gradient(180deg, #100204 0%, #190408 50%, #0a0102 100%);
+            background-attachment: fixed;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* --- Navigation Bar --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: rgba(16, 2, 5, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            /* Changed border from pink to a subtle nude opacity */
+            border-bottom: 1px solid rgba(242, 211, 188, 0.15);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #f2d3bc; /* Changed from Pink to Nude */
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: #f5e1e4;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f2d3bc; /* Changed from Pink to Nude */
+        }
+
+        /* --- Section Formatting Utilities --- */
+        section {
+            padding: 140px 8% 80px 8%;
+            min-height: auto;
+            /* Changed border line from pink to subtle nude opacity */
+            border-bottom: 1px solid rgba(242, 211, 188, 0.08);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: #f2d3bc; /* Changed accent line from Pink to Nude */
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #f2d3bc; /* Changed button background from Pink to Nude */
+            color: #140306; /* Inverted for high contrast readability */
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #d4b296; /* Elegant slightly darker nude tone for hover */
+            transform: translateY(-2px);
+        }
+
+        /* --- 1. Home Section --- */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            /* Substituted pink ambient glow background for a soft nude overlay glow */
+            background: radial-gradient(circle at 50% 50%, rgba(242, 211, 188, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content h1 span {
+            color: #f2d3bc; /* Changed from Pink to Nude */
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #f5e1e4;
+            max-width: 600px;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- 2. About Section Layout --- */
+        .about-grid-layout {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 60px;
+            max-width: 1150px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .about-frame-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Vertical Profile Frame with Nude Highlights */
+        .about-rect-frame {
+            width: 100%;
+            max-width: 360px; 
+            height: 480px;
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 0px; 
+            background-color: #1a0509;
+            border: 2px solid #f2d3bc; /* Changed from Cyan/Blue to Nude */
+            box-shadow: 0 0 25px rgba(242, 211, 188, 0.25);
+            transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+        }
+
+        .about-rect-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-rect-frame:hover {
+            border-color: #d4b296;
+            box-shadow: 0 0 35px rgba(242, 211, 188, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .about-container {
+            width: 100%;
+            text-align: left;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .skill-badge {
+            background-color: rgba(30, 6, 11, 0.7);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(242, 211, 188, 0.25); /* Border swapped to Nude */
+            color: #ffffff;
+            backdrop-filter: blur(4px);
+        }
+
+        /* --- 3. Experience Section --- */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            border-left: 2px solid rgba(242, 211, 188, 0.2); /* Changed from Pink to Nude */
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -41px;
+            top: 5px;
+            background: #f2d3bc; /* Changed Node Dot from Pink to Nude */
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 3px solid #140306;
+        }
+
+        .time-meta {
+            font-size: 0.85rem;
+            color: #f2d3bc; /* Changed Metadata Year text from Pink to Nude */
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .timeline-item h4 {
+            font-size: 1rem;
+            color: #e5cfd2;
+            margin-bottom: 10px;
+        }
+
+        /* --- 4. Projects Section --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: rgba(26, 5, 9, 0.75);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            overflow: hidden; 
+            border: 1px solid rgba(242, 211, 188, 0.15); /* Changed from Pink to Nude */
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(242, 211, 188, 0.5); /* Changed hover highlight from Pink to Nude */
+        }
+
+        .project-img-container {
+            width: 99%;
+            height: 350px;
+            overflow: hidden;
+            background-color: #1a0509;
+        }
+
+        .project-img {
+            width: 105%;
+            height: 100%;
+            object-fit: cover; 
+            object-position: center;
+            display: block;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            color: #e5cfd2;
+            font-size: 0.95rem;
+        }
+
+        /* --- 5. Certifications Section --- */
+        .certs-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            border-left: 2px solid rgba(242, 211, 188, 0.2); /* Changed from Pink to Nude */
+            padding-left: 30px;
+        }
+
+        .cert-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .cert-item::before {
+            content: '';
+            position: absolute;
+            left: -41px;
+            top: 5px;
+            background: #f2d3bc; /* Changed Node Dot from Pink to Nude */
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 3px solid #140306;
+        }
+
+        .cert-item h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .cert-item h4 {
+            font-size: 1rem;
+            color: #e5cfd2;
+            margin-bottom: 10px;
+        }
+
+        /* --- 6. Education Section --- */
+        .education-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .edu-card {
+            background-color: rgba(26, 5, 9, 0.75);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #f2d3bc; /* Changed structural left accent line from Pink to Nude */
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            border-top: 1px solid rgba(242, 211, 188, 0.1);
+            border-right: 1px solid rgba(242, 211, 188, 0.1);
+            border-bottom: 1px solid rgba(242, 211, 188, 0.1);
+        }
+
+        .edu-school {
+            color: #f2d3bc; /* Adjusted school information subheader to Nude for a unified flow */
+            font-weight: 600;
+            margin: 5px 0 15px 0;
+        }
+
+        /* --- 7. Direct Contact Cards Layout --- */
+        .direct-contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background-color: rgba(26, 5, 9, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(242, 211, 188, 0.15); /* Changed from Pink to Nude */
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            color: #f2d3bc; /* Changed Default Icon coloring from soft pink-grey to Nude */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            font-size: 0.9rem;
+            color: #e5cfd2;
+            word-break: break-all;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Gmail Hover */
+        .contact-card.gmail-link:hover {
+            border-color: #db4437;
+            box-shadow: 0 10px 20px rgba(219, 68, 55, 0.25);
+        }
+        .contact-card.gmail-link:hover .icon-box {
+            background-color: rgba(219, 68, 55, 0.15);
+            color: #db4437;
+        }
+
+        /* LinkedIn Hover */
+        .contact-card.linkedin-link:hover {
+            border-color: #0077b5;
+            box-shadow: 0 10px 20px rgba(0, 119, 181, 0.25);
+        }
+        .contact-card.linkedin-link:hover .icon-box {
+            background-color: rgba(0, 119, 181, 0.15);
+            color: #0077b5;
+        }
+
+        /* Facebook Hover */
+        .contact-card.facebook-link:hover {
+            border-color: #1877f2;
+            box-shadow: 0 10px 20px rgba(24, 119, 242, 0.25);
+        }
+        .contact-card.facebook-link:hover .icon-box {
+            background-color: rgba(24, 119, 242, 0.15);
+            color: #1877f2;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #0a0102;
+            color: #8b7477;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(242, 211, 188, 0.15); /* Changed border line from Pink to Nude */
+        }
+
+        /* --- Fully Responsive Overrides --- */
+        @media(max-width: 992px) {
+            .about-grid-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .about-container {
+                text-align: center;
+            }
+            .skills {
+                justify-content: center;
+            }
+            .about-rect-frame {
+                max-width: 320px;
+                height: 420px;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+            section { padding: 90px 5% 50px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><span>PORTFOLIO</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certs">Certs</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>Hi, I'm Claire <br>Your Trusted <span>Virtual Assistant &</span></h1>
+            <h1><span>Graphic Designer</span>.</h1>
+            <p>I am a Virtual Assistant and Graphic Designer specializing in administrative support, customer service, scheduling, data management, digital organization, and creative visual design.</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid-layout">
+            
+            <div class="about-frame-wrapper">
+                <div class="about-rect-frame">
+                    <img src="me.jpeg" alt="Creative Workspace Landscape">
+                </div>
+            </div>
+
+            <div class="about-container">
+                <div class="about-text">
+                    <p>Recent Bachelor of Science in Information Systems graduate with experience in administrative support, client monitoring, and documentation. Skilled in organization, communication, and multitasking, with a strong willingness to learn and grow professionally.</p>
+                    <div class="skills">
+                        <span class="skill-badge">AirTable</span>
+                        <span class="skill-badge">Figma</span>
+                        <span class="skill-badge">Canva</span>
+                        <span class="skill-badge">Adobe</span>
+                        <span class="skill-badge">Ibispaint</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience-section">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="time-meta">2025 - Present</div>
+                <h3>Virtual Assistant</h3>
+                <h4>Relentless</h4>
+                <p>Provided administrative support, managed schedules, handled client communication, and organized digital tasks efficiently.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="time-meta">2024</div>
+                <h3>TADECO</h3>
+                <h4>Internship</h4>
+                <p>Assisted in creating digital content, organizing company records, and supporting daily office and technical operations.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="time-meta">2024</div>
+                <h3>DAPACOR</h3>
+                <h4>Internship</h4>
+                <p>Designed user-friendly layouts, managed creative assets, and contributed to marketing and administrative projects.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="project-grid">
+            
+            <div class="project-card">
+                <div class="project-img-container">
+                    <img src="img2.jpeg" alt="Aura Branding Identity" class="project-img">
+                </div>
+                <div class="project-info">
+                    <h3>Research Study</h3>
+                    <p>A research study on how virtual assistant work affects the academic and personal development of working students in Panabo City, highlighting its positive impact on productivity, skills, and financial support.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-container">
+                    <img src="img1.jpeg" alt="alayon proj" class="project-img">
+                </div>
+                <div class="project-info">
+                    <h3>Project Alayon</h3>
+                    <p>Project Alayon is a web-based donation platform for disaster-affected students in Davao del Norte that improves transparency, coordination, and communication by allowing users to submit donations, request aid, upload proof, track transactions, and access real-time announcements.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-container">
+                    <img src="img3.jpeg" alt="Abstract Poster Series" class="project-img">
+                </div>
+                <div class="project-info">
+                    <h3>ISTP for Hannah kimmy fashion saver</h3>
+                    <p>A system proposal for Hannah Kimmy Fashion Saver that introduces a barcode scanning system and POS cash register to speed up checkout, reduce errors, and improve sales recording and store efficiency.</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+   <section id="certs" class="certs-section">
+        <h2 class="section-title">Certifications</h2>
+        <div class="certs-timeline">
+            
+            <div class="cert-item">
+                <div class="time-meta">Issued Dec 2025</div>
+                <h3>Cisco Networking Academy</h3>
+                <h4>CCNA: Introduction to Networks</h4>
+            </div>
+            <div class="cert-item">
+                <div class="time-meta">Issued 2024</div>
+                <h3>TADECO Summer Job Excellent Award</h3>
+                <h4>Summer Job Internship program at TADECO.</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education-section">
+        <h2 class="section-title">Education</h2>
+        <div class="education-container">
+            <div class="edu-card">
+                <h3>Bachelor of Science in Information Systems</h3>
+                <p class="edu-school">Davao Del Norte State College | 2024-2028</p>
+                <p>Bachelor of Science in Information Systems (BSIS) is a course focused on combining technology, business processes, and data management to develop efficient digital solutions for organizations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Let's Connect</h2>
+        <p style="text-align: center; color: #e5cfd2; margin-bottom: 40px;">Feel free to contact me for collaborations, projects, or opportunities. I am always open to learning, connecting, and working with new people.</p>
+        
+        <div class="direct-contact-grid">
+            <a href="mailto:clairepanaguiton@gmail.com" class="contact-card gmail-link">
+                <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
+                <h3>Gmail</h3>
+                <p>clairepanaguiton@gmail.com</p>
+            </a>
+
+            <a href="https://www.linkedin.com/in/claire-panaguiton-047b16408/" target="_blank" class="contact-card linkedin-link">
+                <div class="icon-box"><i class="fa-brands fa-linkedin-in"></i></div>
+                <h3>LinkedIn</h3>
+                <p>Claire Panaguiton</p>
+            </a>
+
+            <a href="https://web.facebook.com/claire.panaguiton.1" target="_blank" class="contact-card facebook-link">
+                <div class="icon-box"><i class="fa-brands fa-facebook-f"></i></div>
+                <h3>Facebook</h3>
+                <p>Claire</p>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Claire.Design Portfolio. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
